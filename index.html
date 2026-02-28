@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yunus Emre Kayalıdere — CV</title>
+    <meta name="description" content="CV of Yunus Emre Kayalıdere — AI/ML Engineer, CTO, and Top 3% UpWork Developer">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* ===== RESET & BASE ===== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --sidebar-bg: #0f172a;
+            --sidebar-accent: #6366f1;
+            --sidebar-accent-light: #818cf8;
+            --sidebar-text: #cbd5e1;
+            --sidebar-heading: #f1f5f9;
+            --main-bg: #ffffff;
+            --main-text: #334155;
+            --main-heading: #0f172a;
+            --accent: #6366f1;
+            --accent-light: #e0e7ff;
+            --border: #e2e8f0;
+            --tag-bg: rgba(99, 102, 241, 0.12);
+            --tag-text: #4f46e5;
+            --muted: #64748b;
+            --success: #10b981;
+        }
+
+        html {
+            font-size: 14px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #e2e8f0;
+            color: var(--main-text);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            padding: 2rem 1rem;
+        }
+
+        /* ===== PAGE CONTAINER ===== */
+        .cv-page {
+            width: 100%;
+            max-width: 1100px;
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            background: var(--main-bg);
+            box-shadow:
+                0 25px 50px -12px rgba(0, 0, 0, 0.15),
+                0 0 0 1px rgba(0, 0, 0, 0.05);
+            border-radius: 12px;
+            overflow: hidden;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ===== SIDEBAR ===== */
+        .sidebar {
+            background: var(--sidebar-bg);
+            color: var(--sidebar-text);
+            padding: 2.5rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sidebar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--sidebar-accent), #a78bfa, #f472b6);
+        }
+
+        .sidebar::after {
+            content: '';
+            position: absolute;
+            bottom: -80px;
+            right: -80px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.08), transparent 70%);
+            pointer-events: none;
+        }
+
+        /* Avatar / Name Header */
+        .profile {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--sidebar-accent), #a78bfa);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.2rem;
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: -1px;
+            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.25);
+            position: relative;
+        }
+
+        .avatar::after {
+            content: '';
+            position: absolute;
+            inset: -6px;
+            border-radius: 50%;
+            border: 2px dashed rgba(99, 102, 241, 0.3);
+            animation: spin 20s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .profile h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--sidebar-heading);
+            letter-spacing: -0.5px;
+            margin-bottom: 0.3rem;
+        }
+
+        .profile .title-tagline {
+            font-size: 0.85rem;
+            color: var(--sidebar-accent-light);
+            font-weight: 500;
+        }
+
+        /* Sidebar Section */
+        .sidebar-section {
+            margin-bottom: 2rem;
+        }
+
+        .sidebar-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .sidebar-section h2 {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--sidebar-accent-light);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .sidebar-section h2::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        /* Contact Items */
+        .contact-list {
+            list-style: none;
+        }
+
+        .contact-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 0.8rem;
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+
+        .contact-list li .icon {
+            width: 32px;
+            height: 32px;
+            min-width: 32px;
+            background: rgba(99, 102, 241, 0.15);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            color: var(--sidebar-accent-light);
+            transition: all 0.2s ease;
+        }
+
+        .contact-list li:hover .icon {
+            background: rgba(99, 102, 241, 0.3);
+            transform: scale(1.05);
+        }
+
+        .contact-list a {
+            color: var(--sidebar-text);
+            text-decoration: none;
+            word-break: break-all;
+            transition: color 0.2s ease;
+        }
+
+        .contact-list a:hover {
+            color: #fff;
+        }
+
+        .contact-list .label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--muted);
+            display: block;
+            margin-bottom: 1px;
+        }
+
+        /* Skill Tags */
+        .skill-category {
+            margin-bottom: 1.2rem;
+        }
+
+        .skill-category h3 {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--sidebar-heading);
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        .skill-tags span {
+            padding: 3px 9px;
+            border-radius: 4px;
+            font-size: 0.72rem;
+            font-weight: 500;
+            background: rgba(99, 102, 241, 0.12);
+            color: var(--sidebar-accent-light);
+            border: 1px solid rgba(99, 102, 241, 0.15);
+            transition: all 0.2s ease;
+        }
+
+        .skill-tags span:hover {
+            background: rgba(99, 102, 241, 0.25);
+            transform: translateY(-1px);
+        }
+
+        /* Education in sidebar */
+        .edu-item {
+            margin-bottom: 1.2rem;
+            padding-left: 1rem;
+            border-left: 2px solid rgba(99, 102, 241, 0.3);
+        }
+
+        .edu-item h3 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--sidebar-heading);
+            line-height: 1.3;
+        }
+
+        .edu-item .degree {
+            font-size: 0.8rem;
+            color: var(--sidebar-accent-light);
+            font-weight: 500;
+            margin: 2px 0;
+        }
+
+        .edu-item .edu-meta {
+            font-size: 0.72rem;
+            color: var(--muted);
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .main {
+            padding: 2.5rem 2.5rem 2.5rem 2.5rem;
+            overflow-y: auto;
+        }
+
+        /* Summary */
+        .summary {
+            background: linear-gradient(135deg, var(--accent-light), #f0f4ff);
+            border-left: 4px solid var(--accent);
+            border-radius: 0 8px 8px 0;
+            padding: 1.3rem 1.5rem;
+            margin-bottom: 2rem;
+            font-size: 0.92rem;
+            line-height: 1.7;
+            color: #1e293b;
+            position: relative;
+        }
+
+        .summary::before {
+            content: '❝';
+            position: absolute;
+            top: -4px;
+            left: 12px;
+            font-size: 2rem;
+            color: var(--accent);
+            opacity: 0.3;
+        }
+
+        .summary strong {
+            color: var(--accent);
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--main-heading);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.6rem;
+            border-bottom: 2px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-title .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent);
+            display: inline-block;
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 6px;
+            top: 8px;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--accent), var(--border));
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1.8rem;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--main-bg);
+            border: 3px solid var(--accent);
+            z-index: 1;
+            transition: all 0.2s ease;
+        }
+
+        .timeline-item:hover::before {
+            background: var(--accent);
+            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 0.3rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .timeline-header h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--main-heading);
+        }
+
+        .timeline-header .date {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--accent);
+            background: var(--accent-light);
+            padding: 2px 10px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+
+        .timeline-role {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .timeline-item li {
+            position: relative;
+            padding-left: 1.2rem;
+            margin-bottom: 0.4rem;
+            font-size: 0.85rem;
+            line-height: 1.55;
+            color: var(--main-text);
+        }
+
+        .timeline-item li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        /* Projects Section */
+        .project-card {
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.1rem 1.3rem;
+            margin-bottom: 1rem;
+            transition: all 0.2s ease;
+        }
+
+        .project-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.08);
+            transform: translateY(-1px);
+        }
+
+        .project-card h3 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--main-heading);
+            margin-bottom: 0.4rem;
+        }
+
+        .project-card p {
+            font-size: 0.82rem;
+            line-height: 1.55;
+            color: var(--main-text);
+        }
+
+        .project-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            color: #78350f;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-right: 6px;
+            vertical-align: middle;
+        }
+
+        /* Highlight text */
+        .highlight {
+            font-weight: 600;
+            color: var(--main-heading);
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: #fff;
+                padding: 0;
+            }
+            .cv-page {
+                box-shadow: none;
+                border-radius: 0;
+                max-width: 100%;
+            }
+            .sidebar::before { display: none; }
+            .avatar::after { animation: none; }
+        }
+
+        /* Responsive */
+        @media (max-width: 800px) {
+            .cv-page {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                padding: 2rem 1.5rem;
+            }
+            .main {
+                padding: 2rem 1.5rem;
+            }
+        }
+
+        /* ===== UPWORK BADGE ===== */
+        .upwork-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: linear-gradient(135deg, #14a800, #1aaf05);
+            color: #fff;
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-top: 0.7rem;
+            letter-spacing: 0.3px;
+            box-shadow: 0 2px 8px rgba(20, 168, 0, 0.25);
+        }
+
+        .upwork-badge svg {
+            width: 14px;
+            height: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="cv-page">
+    <!-- ==================== SIDEBAR ==================== -->
+    <aside class="sidebar">
+        <div class="profile">
+            <div class="avatar">YK</div>
+            <h1>Yunus Emre Kayalıdere</h1>
+            <p class="title-tagline">AI / ML Engineer &amp; CTO</p>
+            <div class="upwork-badge">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.548-1.405-.002-2.543-1.143-2.545-2.548V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z"/></svg>
+                TOP 3% TALENT
+            </div>
+        </div>
+
+        <!-- Contact -->
+        <div class="sidebar-section">
+            <h2>Contact</h2>
+            <ul class="contact-list">
+                <li>
+                    <div class="icon">📍</div>
+                    <div>
+                        <span class="label">Location</span>
+                        İstanbul, Türkiye
+                    </div>
+                </li>
+                <li>
+                    <div class="icon">✉️</div>
+                    <div>
+                        <span class="label">Email</span>
+                        <a href="mailto:yunus@selextract.com">yunus@selextract.com</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="icon">💻</div>
+                    <div>
+                        <span class="label">GitHub</span>
+                        <a href="https://github.com/deduble" target="_blank">github.com/deduble</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="icon">🌐</div>
+                    <div>
+                        <span class="label">Portfolio</span>
+                        <a href="https://selextract.com" target="_blank">selextract.com</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="icon">💼</div>
+                    <div>
+                        <span class="label">UpWork</span>
+                        <a href="https://www.upwork.com/freelancers/~016c3a430cde0647b5" target="_blank">View Profile</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Technical Skills -->
+        <div class="sidebar-section">
+            <h2>Technical Skills</h2>
+
+            <div class="skill-category">
+                <h3>AI / Machine Learning</h3>
+                <div class="skill-tags">
+                    <span>PyTorch</span>
+                    <span>TensorFlow</span>
+                    <span>Scikit-learn</span>
+                    <span>OpenCV</span>
+                    <span>NLP</span>
+                    <span>YOLO</span>
+                    <span>MLOps</span>
+                    <span>Computer Vision</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Data Science</h3>
+                <div class="skill-tags">
+                    <span>Python</span>
+                    <span>Pandas</span>
+                    <span>NumPy</span>
+                    <span>ETL Pipelines</span>
+                    <span>Web Scraping</span>
+                    <span>Data Viz</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Backend & Cloud</h3>
+                <div class="skill-tags">
+                    <span>Node.js</span>
+                    <span>Express</span>
+                    <span>Flask</span>
+                    <span>Django</span>
+                    <span>Supabase</span>
+                    <span>GCP</span>
+                    <span>AWS</span>
+                    <span>Docker</span>
+                    <span>K8s</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Databases</h3>
+                <div class="skill-tags">
+                    <span>PostgreSQL</span>
+                    <span>MongoDB</span>
+                    <span>Redis</span>
+                    <span>MySQL</span>
+                    <span>SQLite</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Frontend & Mobile</h3>
+                <div class="skill-tags">
+                    <span>Flutter</span>
+                    <span>React.js</span>
+                    <span>TypeScript</span>
+                    <span>Dart</span>
+                    <span>HTML/CSS</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Leadership</h3>
+                <div class="skill-tags">
+                    <span>Tech Strategy</span>
+                    <span>Agile/Scrum</span>
+                    <span>HIPAA</span>
+                    <span>System Design</span>
+                    <span>RLS</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Education -->
+        <div class="sidebar-section">
+            <h2>Education</h2>
+
+            <div class="edu-item">
+                <h3>Middle East Technical University</h3>
+                <p class="degree">M.S. Cognitive Science</p>
+                <p class="edu-meta">Ankara, Türkiye · 2016 – 2019</p>
+                <p class="edu-meta" style="margin-top:2px; font-size:0.7rem; color: #94a3b8;">Focus: AI methodologies, ML, cognitive psychology</p>
+            </div>
+
+            <div class="edu-item">
+                <h3>METU Northern Cyprus</h3>
+                <p class="degree">B.A. Psychology</p>
+                <p class="edu-meta">Güzelyurt · 2011 – 2016</p>
+                <p class="edu-meta" style="margin-top:2px; font-size:0.7rem; color: #94a3b8;">GPA 3.1 · High Honors & Honors</p>
+            </div>
+        </div>
+    </aside>
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main class="main">
+        <!-- Professional Summary -->
+        <div class="summary">
+            <strong>Top 3% UpWork AI Developer</strong> and Technical Lead with <strong>7+ years</strong> of experience designing end-to-end Machine Learning pipelines, Computer Vision models, and NLP systems. Proven track record of developing custom neural networks (PyTorch, TensorFlow) and deploying robust MLOps architectures for <strong>50K+ users</strong> in the medical tech sector.
+        </div>
+
+        <!-- Experience -->
+        <h2 class="section-title"><span class="dot"></span> Professional Experience</h2>
+        <div class="timeline">
+
+            <!-- Devise Health -->
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <h3>Devise Health</h3>
+                    <span class="date">2025 – Present</span>
+                </div>
+                <p class="timeline-role">Chief Technology Officer (CTO)</p>
+                <ul>
+                    <li>Directing technical strategy and architecture for healthcare apps (<span class="highlight">Implant Identifier</span>, <span class="highlight">iTemplating</span>, <span class="highlight">SurgiVision</span>) serving <span class="highlight">50,000+</span> medical professionals.</li>
+                    <li>Overseeing cloud infrastructure migration & scaling (Supabase, PostgreSQL, GCP) with rigorous HIPAA-compliant data security.</li>
+                    <li>Managing cross-functional workflows bridging AI model deployment, Flutter mobile apps, and Node.js/Express backend services.</li>
+                    <li>Collaborating with manufacturers and device representatives to establish B2B business models.</li>
+                </ul>
+            </div>
+
+            <!-- Implant Identifier -->
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <h3>Implant Identifier</h3>
+                    <span class="date">2024 – Present</span>
+                </div>
+                <p class="timeline-role">AI Lead</p>
+                <ul>
+                    <li>Scaled an AI-powered orthopedic implant identification platform from MVP to a <span class="highlight">leading global medical tool</span>, acquiring ~5,000 active users (10% base growth) in the first month.</li>
+                    <li>Architected and trained Computer Vision models (PyTorch, TensorFlow) for real-time detection & classification of <span class="highlight">1,000+ implant types</span> from X-ray images.</li>
+                    <li>Built comprehensive MLOps pipelines for continuous data integration, ensuring dataset integrity and consistently improving model accuracy.</li>
+                </ul>
+            </div>
+
+            <!-- Selextract -->
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <h3>Selextract</h3>
+                    <span class="date">2024 – Present</span>
+                </div>
+                <p class="timeline-role">Founder & Lead Developer</p>
+                <ul>
+                    <li>Developing a SaaS platform for advanced data extraction using AI agents to reverse-engineer web into deterministic recipes.</li>
+                </ul>
+            </div>
+
+            <!-- FHD Media -->
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <h3>FHD Media <span style="font-weight:400; font-size:0.82rem; color: var(--muted);">(@YouTube FERA-ANIMATIONS)</span></h3>
+                    <span class="date">2021 – 2024</span>
+                </div>
+                <p class="timeline-role">Data Scientist</p>
+                <ul>
+                    <li>Engineered large-scale scraping pipelines across YouTube, X, and Instagram, processing <span class="highlight">millions of posts</span> for trend analysis.</li>
+                    <li>Applied generative ML models (Markov Chains), word clouds, and NLP techniques to autonomously generate targeted content ideas from real-time audience data.</li>
+                    <li>Propelled the channel to consistently rank in the <span class="highlight">Top 10 trending</span> in the animation category on release days.</li>
+                </ul>
+            </div>
+
+            <!-- Flipppler -->
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <h3>Flipppler GmbH <span style="font-weight:400; font-size:0.82rem; color: var(--muted);">München, Germany</span></h3>
+                    <span class="date">2019 – 2021</span>
+                </div>
+                <p class="timeline-role">Cognitive Developer</p>
+                <ul>
+                    <li>Developed automated scrapers and trained RNNs to extract structured product data, processing up to <span class="highlight">10,000 catalog pages (~50K products)</span>.</li>
+                    <li>Implemented the Hungarian algorithm for visual price-product matching, mimicking human cognitive association and drastically improving accuracy.</li>
+                </ul>
+            </div>
+
+            <!-- UpWork -->
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <h3>UpWork Freelance</h3>
+                    <span class="date">2018 – Present</span>
+                </div>
+                <p class="timeline-role">AI Developer (Top 3% Talent)</p>
+                <ul>
+                    <li>Consistently ranked in the <span class="highlight">top 3%</span> of global talent, delivering custom AI, ML, and Cloud solutions with exceptional client satisfaction.</li>
+                    <li>Designed and deployed secure PERN stack admin panels with Role-Based Access Control (RBAC) for user, content, and system management.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Projects -->
+        <h2 class="section-title"><span class="dot"></span> Selected Projects & Achievements</h2>
+
+        <div class="project-card">
+            <h3><span class="project-badge">🏆 Finalist</span> 2022 Teknofest — Combat UAV</h3>
+            <p>Engineered autonomous weapons & flight control systems. Trained a custom <span class="highlight">YOLO model</span> for target detection, integrated KCF algorithm for high-speed tracking with async YOLO reorientation. Authored the autonomous dogfight algorithm and battlefield server API protocol.</p>
+        </div>
+
+        <div class="project-card">
+            <h3>Stellair.io — Fashion Pattern Recognition</h3>
+            <p>Deployed a custom <span class="highlight">RetinaNet</span> model on Google ML Engine, trained to identify and match <span class="highlight">30 fashion patterns</span> and <span class="highlight">12 colors</span> based on designer guidelines for personalized clothing fit recommendations.</p>
+        </div>
+
+        <div class="project-card">
+            <h3>Dynamic ASL & Talos App</h3>
+            <p>Developed real-time ASL recognition using <span class="highlight">Inception v3</span>. Built Talos, a multi-language camera-based translation app supporting <span class="highlight">26 languages</span> and recognizing <span class="highlight">2,500+ objects</span>.</p>
+        </div>
+    </main>
+</div>
+
+</body>
+</html>
