@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,10 +8,14 @@
     <meta name="description" content="CV of Yunus Emre Kayalıdere — AI/ML Engineer, CTO, and Top 3% UpWork Developer">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
     <style>
         /* ===== RESET & BASE ===== */
-        *, *::before, *::after {
+        *,
+        *::before,
+        *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -67,8 +72,15 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* ===== SIDEBAR ===== */
@@ -137,7 +149,9 @@
         }
 
         @keyframes spin {
-            to { transform: rotate(360deg); }
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         .profile h1 {
@@ -499,19 +513,180 @@
             color: var(--main-heading);
         }
 
-        /* Print styles */
+        /* ===== PRINT / PDF STYLES ===== */
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
         @media print {
+
+            /* Force backgrounds to print */
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                color-adjust: exact !important;
+            }
+
+            html {
+                font-size: 11px;
+            }
+
             body {
-                background: #fff;
-                padding: 0;
+                background: #fff !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                min-height: auto;
             }
+
             .cv-page {
-                box-shadow: none;
-                border-radius: 0;
-                max-width: 100%;
+                box-shadow: none !important;
+                border-radius: 0 !important;
+                max-width: 100% !important;
+                width: 100% !important;
+                min-height: 100vh;
+                grid-template-columns: 280px 1fr !important;
+                animation: none !important;
             }
-            .sidebar::before { display: none; }
-            .avatar::after { animation: none; }
+
+            /* Sidebar */
+            .sidebar {
+                background: #0f172a !important;
+                padding: 1.8rem 1.5rem !important;
+            }
+
+            .sidebar::before {
+                background: linear-gradient(90deg, #6366f1, #a78bfa, #f472b6) !important;
+            }
+
+            /* Disable all animations */
+            .avatar::after {
+                animation: none !important;
+                border: 2px dashed rgba(99, 102, 241, 0.3) !important;
+            }
+
+            /* Profile section - tighten spacing */
+            .profile {
+                margin-bottom: 1.2rem;
+                padding-bottom: 1.2rem;
+            }
+
+            .avatar {
+                width: 70px;
+                height: 70px;
+                font-size: 1.6rem;
+            }
+
+            /* Sidebar sections - reduce gaps */
+            .sidebar-section {
+                margin-bottom: 1.2rem;
+            }
+
+            .sidebar-section h2 {
+                margin-bottom: 0.6rem;
+            }
+
+            .skill-category {
+                margin-bottom: 0.8rem;
+            }
+
+            .edu-item {
+                margin-bottom: 0.8rem;
+            }
+
+            /* Main content */
+            .main {
+                padding: 1.8rem 2rem !important;
+                overflow: visible !important;
+            }
+
+            .summary {
+                background: #e0e7ff !important;
+                margin-bottom: 1.2rem;
+                padding: 1rem 1.2rem;
+            }
+
+            .section-title {
+                margin-bottom: 1rem;
+            }
+
+            /* Prevent page breaks inside items */
+            .timeline-item {
+                break-inside: avoid;
+                page-break-inside: avoid;
+                margin-bottom: 1.2rem;
+            }
+
+            .project-card {
+                break-inside: avoid;
+                page-break-inside: avoid;
+                background: #f8fafc !important;
+            }
+
+            .timeline {
+                margin-bottom: 1.2rem;
+            }
+
+            /* Timeline line */
+            .timeline::before {
+                background: #6366f1 !important;
+            }
+
+            .timeline-item::before {
+                border-color: #6366f1 !important;
+                background: #fff !important;
+            }
+
+            /* Date badges */
+            .timeline-header .date {
+                background: #e0e7ff !important;
+                color: #6366f1 !important;
+            }
+
+            /* Skill tags */
+            .skill-tags span {
+                background: rgba(99, 102, 241, 0.12) !important;
+                border-color: rgba(99, 102, 241, 0.2) !important;
+            }
+
+            /* UpWork badge */
+            .upwork-badge {
+                background: #14a800 !important;
+            }
+
+            /* Project badge */
+            .project-badge {
+                background: #f59e0b !important;
+            }
+
+            /* Section dot */
+            .section-title .dot {
+                background: #6366f1 !important;
+            }
+
+            /* Contact icons */
+            .contact-list li .icon {
+                background: rgba(99, 102, 241, 0.15) !important;
+            }
+
+            /* Education border */
+            .edu-item {
+                border-left-color: rgba(99, 102, 241, 0.3) !important;
+            }
+
+            /* Remove hover effects in print */
+            .contact-list li:hover .icon,
+            .timeline-item:hover::before,
+            .project-card:hover,
+            .skill-tags span:hover {
+                transform: none !important;
+                box-shadow: none !important;
+            }
+
+            /* Hide link underlines */
+            a {
+                text-decoration: none !important;
+            }
         }
 
         /* Responsive */
@@ -519,9 +694,11 @@
             .cv-page {
                 grid-template-columns: 1fr;
             }
+
             .sidebar {
                 padding: 2rem 1.5rem;
             }
+
             .main {
                 padding: 2rem 1.5rem;
             }
@@ -549,274 +726,314 @@
         }
     </style>
 </head>
+
 <body>
 
-<div class="cv-page">
-    <!-- ==================== SIDEBAR ==================== -->
-    <aside class="sidebar">
-        <div class="profile">
-            <div class="avatar">YK</div>
-            <h1>Yunus Emre Kayalıdere</h1>
-            <p class="title-tagline">AI / ML Engineer &amp; CTO</p>
-            <div class="upwork-badge">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.548-1.405-.002-2.543-1.143-2.545-2.548V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z"/></svg>
-                TOP 3% TALENT
+    <div class="cv-page">
+        <!-- ==================== SIDEBAR ==================== -->
+        <aside class="sidebar">
+            <div class="profile">
+                <div class="avatar">YK</div>
+                <h1>Yunus Emre Kayalıdere</h1>
+                <p class="title-tagline">AI / ML Engineer &amp; CTO</p>
+                <div class="upwork-badge">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.548-1.405-.002-2.543-1.143-2.545-2.548V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z" />
+                    </svg>
+                    TOP 3% TALENT
+                </div>
             </div>
-        </div>
 
-        <!-- Contact -->
-        <div class="sidebar-section">
-            <h2>Contact</h2>
-            <ul class="contact-list">
-                <li>
-                    <div class="icon">📍</div>
-                    <div>
-                        <span class="label">Location</span>
-                        İstanbul, Türkiye
+            <!-- Contact -->
+            <div class="sidebar-section">
+                <h2>Contact</h2>
+                <ul class="contact-list">
+                    <li>
+                        <div class="icon">📍</div>
+                        <div>
+                            <span class="label">Location</span>
+                            İstanbul, Türkiye
+                        </div>
+                    </li>
+                    <li>
+                        <div class="icon">✉️</div>
+                        <div>
+                            <span class="label">Email</span>
+                            <a href="mailto:yunus@selextract.com">yunus@selextract.com</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="icon">💻</div>
+                        <div>
+                            <span class="label">GitHub</span>
+                            <a href="https://github.com/deduble" target="_blank">github.com/deduble</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="icon">🌐</div>
+                        <div>
+                            <span class="label">Portfolio</span>
+                            <a href="https://selextract.com" target="_blank">selextract.com</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="icon">💼</div>
+                        <div>
+                            <span class="label">UpWork</span>
+                            <a href="https://www.upwork.com/freelancers/~016c3a430cde0647b5" target="_blank">View
+                                Profile</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Technical Skills -->
+            <div class="sidebar-section">
+                <h2>Technical Skills</h2>
+
+                <div class="skill-category">
+                    <h3>AI / Machine Learning</h3>
+                    <div class="skill-tags">
+                        <span>PyTorch</span>
+                        <span>TensorFlow</span>
+                        <span>Scikit-learn</span>
+                        <span>OpenCV</span>
+                        <span>NLP</span>
+                        <span>YOLO</span>
+                        <span>MLOps</span>
+                        <span>Computer Vision</span>
                     </div>
-                </li>
-                <li>
-                    <div class="icon">✉️</div>
-                    <div>
-                        <span class="label">Email</span>
-                        <a href="mailto:yunus@selextract.com">yunus@selextract.com</a>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Data Science</h3>
+                    <div class="skill-tags">
+                        <span>Python</span>
+                        <span>Pandas</span>
+                        <span>NumPy</span>
+                        <span>ETL Pipelines</span>
+                        <span>Web Scraping</span>
+                        <span>Data Viz</span>
                     </div>
-                </li>
-                <li>
-                    <div class="icon">💻</div>
-                    <div>
-                        <span class="label">GitHub</span>
-                        <a href="https://github.com/deduble" target="_blank">github.com/deduble</a>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Backend & Cloud</h3>
+                    <div class="skill-tags">
+                        <span>Node.js</span>
+                        <span>Express</span>
+                        <span>Flask</span>
+                        <span>Django</span>
+                        <span>Supabase</span>
+                        <span>GCP</span>
+                        <span>AWS</span>
+                        <span>Docker</span>
+                        <span>K8s</span>
                     </div>
-                </li>
-                <li>
-                    <div class="icon">🌐</div>
-                    <div>
-                        <span class="label">Portfolio</span>
-                        <a href="https://selextract.com" target="_blank">selextract.com</a>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Databases</h3>
+                    <div class="skill-tags">
+                        <span>PostgreSQL</span>
+                        <span>MongoDB</span>
+                        <span>Redis</span>
+                        <span>MySQL</span>
+                        <span>SQLite</span>
                     </div>
-                </li>
-                <li>
-                    <div class="icon">💼</div>
-                    <div>
-                        <span class="label">UpWork</span>
-                        <a href="https://www.upwork.com/freelancers/~016c3a430cde0647b5" target="_blank">View Profile</a>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Frontend & Mobile</h3>
+                    <div class="skill-tags">
+                        <span>Flutter</span>
+                        <span>React.js</span>
+                        <span>TypeScript</span>
+                        <span>Dart</span>
+                        <span>HTML/CSS</span>
                     </div>
-                </li>
-            </ul>
-        </div>
+                </div>
 
-        <!-- Technical Skills -->
-        <div class="sidebar-section">
-            <h2>Technical Skills</h2>
-
-            <div class="skill-category">
-                <h3>AI / Machine Learning</h3>
-                <div class="skill-tags">
-                    <span>PyTorch</span>
-                    <span>TensorFlow</span>
-                    <span>Scikit-learn</span>
-                    <span>OpenCV</span>
-                    <span>NLP</span>
-                    <span>YOLO</span>
-                    <span>MLOps</span>
-                    <span>Computer Vision</span>
+                <div class="skill-category">
+                    <h3>Leadership</h3>
+                    <div class="skill-tags">
+                        <span>Tech Strategy</span>
+                        <span>Agile/Scrum</span>
+                        <span>HIPAA</span>
+                        <span>System Design</span>
+                        <span>RLS</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="skill-category">
-                <h3>Data Science</h3>
-                <div class="skill-tags">
-                    <span>Python</span>
-                    <span>Pandas</span>
-                    <span>NumPy</span>
-                    <span>ETL Pipelines</span>
-                    <span>Web Scraping</span>
-                    <span>Data Viz</span>
+            <!-- Education -->
+            <div class="sidebar-section">
+                <h2>Education</h2>
+
+                <div class="edu-item">
+                    <h3>Middle East Technical University</h3>
+                    <p class="degree">M.S. Cognitive Science</p>
+                    <p class="edu-meta">Ankara, Türkiye · 2016 – 2019</p>
+                    <p class="edu-meta" style="margin-top:2px; font-size:0.7rem; color: #94a3b8;">Focus: AI
+                        methodologies, ML, cognitive psychology</p>
+                </div>
+
+                <div class="edu-item">
+                    <h3>METU Northern Cyprus</h3>
+                    <p class="degree">B.A. Psychology</p>
+                    <p class="edu-meta">Güzelyurt · 2011 – 2016</p>
+                    <p class="edu-meta" style="margin-top:2px; font-size:0.7rem; color: #94a3b8;">GPA 3.1 · High Honors
+                        & Honors</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- ==================== MAIN CONTENT ==================== -->
+        <main class="main">
+            <!-- Professional Summary -->
+            <div class="summary">
+                <strong>Top 3% UpWork AI Developer</strong> and Technical Lead with <strong>7+ years</strong> of
+                experience designing end-to-end Machine Learning pipelines, Computer Vision models, and NLP systems.
+                Proven track record of developing custom neural networks (PyTorch, TensorFlow) and deploying robust
+                MLOps architectures for <strong>50K+ users</strong> in the medical tech sector.
+            </div>
+
+            <!-- Experience -->
+            <h2 class="section-title"><span class="dot"></span> Professional Experience</h2>
+            <div class="timeline">
+
+                <!-- Devise Health -->
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <h3>Devise Health</h3>
+                        <span class="date">2025 – Present</span>
+                    </div>
+                    <p class="timeline-role">Chief Technology Officer (CTO)</p>
+                    <ul>
+                        <li>Directing technical strategy and architecture for healthcare apps (<span
+                                class="highlight">Implant Identifier</span>, <span class="highlight">iTemplating</span>,
+                            <span class="highlight">SurgiVision</span>) serving <span class="highlight">50,000+</span>
+                            medical professionals.</li>
+                        <li>Overseeing cloud infrastructure migration & scaling (Supabase, PostgreSQL, GCP) with
+                            rigorous HIPAA-compliant data security.</li>
+                        <li>Managing cross-functional workflows bridging AI model deployment, Flutter mobile apps, and
+                            Node.js/Express backend services.</li>
+                        <li>Collaborating with manufacturers and device representatives to establish B2B business
+                            models.</li>
+                    </ul>
+                </div>
+
+                <!-- Implant Identifier -->
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <h3>Implant Identifier</h3>
+                        <span class="date">2024 – Present</span>
+                    </div>
+                    <p class="timeline-role">AI Lead</p>
+                    <ul>
+                        <li>Scaled an AI-powered orthopedic implant identification platform from MVP to a <span
+                                class="highlight">leading global medical tool</span>, acquiring ~5,000 active users (10%
+                            base growth) in the first month.</li>
+                        <li>Architected and trained Computer Vision models (PyTorch, TensorFlow) for real-time detection
+                            & classification of <span class="highlight">1,000+ implant types</span> from X-ray images.
+                        </li>
+                        <li>Built comprehensive MLOps pipelines for continuous data integration, ensuring dataset
+                            integrity and consistently improving model accuracy.</li>
+                    </ul>
+                </div>
+
+                <!-- Selextract -->
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <h3>Selextract</h3>
+                        <span class="date">2024 – Present</span>
+                    </div>
+                    <p class="timeline-role">Founder & Lead Developer</p>
+                    <ul>
+                        <li>Developing a SaaS platform for advanced data extraction using AI agents to reverse-engineer
+                            web into deterministic recipes.</li>
+                    </ul>
+                </div>
+
+                <!-- FHD Media -->
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <h3>FHD Media <span style="font-weight:400; font-size:0.82rem; color: var(--muted);">(@YouTube
+                                FERA-ANIMATIONS)</span></h3>
+                        <span class="date">2021 – 2024</span>
+                    </div>
+                    <p class="timeline-role">Data Scientist</p>
+                    <ul>
+                        <li>Engineered large-scale scraping pipelines across YouTube, X, and Instagram, processing <span
+                                class="highlight">millions of posts</span> for trend analysis.</li>
+                        <li>Applied generative ML models (Markov Chains), word clouds, and NLP techniques to
+                            autonomously generate targeted content ideas from real-time audience data.</li>
+                        <li>Propelled the channel to consistently rank in the <span class="highlight">Top 10
+                                trending</span> in the animation category on release days.</li>
+                    </ul>
+                </div>
+
+                <!-- Flipppler -->
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <h3>Flipppler GmbH <span
+                                style="font-weight:400; font-size:0.82rem; color: var(--muted);">München, Germany</span>
+                        </h3>
+                        <span class="date">2019 – 2021</span>
+                    </div>
+                    <p class="timeline-role">Cognitive Developer</p>
+                    <ul>
+                        <li>Developed automated scrapers and trained RNNs to extract structured product data, processing
+                            up to <span class="highlight">10,000 catalog pages (~50K products)</span>.</li>
+                        <li>Implemented the Hungarian algorithm for visual price-product matching, mimicking human
+                            cognitive association and drastically improving accuracy.</li>
+                    </ul>
+                </div>
+
+                <!-- UpWork -->
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <h3>UpWork Freelance</h3>
+                        <span class="date">2018 – Present</span>
+                    </div>
+                    <p class="timeline-role">AI Developer (Top 3% Talent)</p>
+                    <ul>
+                        <li>Consistently ranked in the <span class="highlight">top 3%</span> of global talent,
+                            delivering custom AI, ML, and Cloud solutions with exceptional client satisfaction.</li>
+                        <li>Designed and deployed secure PERN stack admin panels with Role-Based Access Control (RBAC)
+                            for user, content, and system management.</li>
+                    </ul>
                 </div>
             </div>
 
-            <div class="skill-category">
-                <h3>Backend & Cloud</h3>
-                <div class="skill-tags">
-                    <span>Node.js</span>
-                    <span>Express</span>
-                    <span>Flask</span>
-                    <span>Django</span>
-                    <span>Supabase</span>
-                    <span>GCP</span>
-                    <span>AWS</span>
-                    <span>Docker</span>
-                    <span>K8s</span>
-                </div>
+            <!-- Projects -->
+            <h2 class="section-title"><span class="dot"></span> Selected Projects & Achievements</h2>
+
+            <div class="project-card">
+                <h3><span class="project-badge">🏆 Finalist</span> 2022 Teknofest — Combat UAV</h3>
+                <p>Engineered autonomous weapons & flight control systems. Trained a custom <span class="highlight">YOLO
+                        model</span> for target detection, integrated KCF algorithm for high-speed tracking with async
+                    YOLO reorientation. Authored the autonomous dogfight algorithm and battlefield server API protocol.
+                </p>
             </div>
 
-            <div class="skill-category">
-                <h3>Databases</h3>
-                <div class="skill-tags">
-                    <span>PostgreSQL</span>
-                    <span>MongoDB</span>
-                    <span>Redis</span>
-                    <span>MySQL</span>
-                    <span>SQLite</span>
-                </div>
+            <div class="project-card">
+                <h3>Stellair.io — Fashion Pattern Recognition</h3>
+                <p>Deployed a custom <span class="highlight">RetinaNet</span> model on Google ML Engine, trained to
+                    identify and match <span class="highlight">30 fashion patterns</span> and <span class="highlight">12
+                        colors</span> based on designer guidelines for personalized clothing fit recommendations.</p>
             </div>
 
-            <div class="skill-category">
-                <h3>Frontend & Mobile</h3>
-                <div class="skill-tags">
-                    <span>Flutter</span>
-                    <span>React.js</span>
-                    <span>TypeScript</span>
-                    <span>Dart</span>
-                    <span>HTML/CSS</span>
-                </div>
+            <div class="project-card">
+                <h3>Dynamic ASL & Talos App</h3>
+                <p>Developed real-time ASL recognition using <span class="highlight">Inception v3</span>. Built Talos, a
+                    multi-language camera-based translation app supporting <span class="highlight">26 languages</span>
+                    and recognizing <span class="highlight">2,500+ objects</span>.</p>
             </div>
-
-            <div class="skill-category">
-                <h3>Leadership</h3>
-                <div class="skill-tags">
-                    <span>Tech Strategy</span>
-                    <span>Agile/Scrum</span>
-                    <span>HIPAA</span>
-                    <span>System Design</span>
-                    <span>RLS</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Education -->
-        <div class="sidebar-section">
-            <h2>Education</h2>
-
-            <div class="edu-item">
-                <h3>Middle East Technical University</h3>
-                <p class="degree">M.S. Cognitive Science</p>
-                <p class="edu-meta">Ankara, Türkiye · 2016 – 2019</p>
-                <p class="edu-meta" style="margin-top:2px; font-size:0.7rem; color: #94a3b8;">Focus: AI methodologies, ML, cognitive psychology</p>
-            </div>
-
-            <div class="edu-item">
-                <h3>METU Northern Cyprus</h3>
-                <p class="degree">B.A. Psychology</p>
-                <p class="edu-meta">Güzelyurt · 2011 – 2016</p>
-                <p class="edu-meta" style="margin-top:2px; font-size:0.7rem; color: #94a3b8;">GPA 3.1 · High Honors & Honors</p>
-            </div>
-        </div>
-    </aside>
-
-    <!-- ==================== MAIN CONTENT ==================== -->
-    <main class="main">
-        <!-- Professional Summary -->
-        <div class="summary">
-            <strong>Top 3% UpWork AI Developer</strong> and Technical Lead with <strong>7+ years</strong> of experience designing end-to-end Machine Learning pipelines, Computer Vision models, and NLP systems. Proven track record of developing custom neural networks (PyTorch, TensorFlow) and deploying robust MLOps architectures for <strong>50K+ users</strong> in the medical tech sector.
-        </div>
-
-        <!-- Experience -->
-        <h2 class="section-title"><span class="dot"></span> Professional Experience</h2>
-        <div class="timeline">
-
-            <!-- Devise Health -->
-            <div class="timeline-item">
-                <div class="timeline-header">
-                    <h3>Devise Health</h3>
-                    <span class="date">2025 – Present</span>
-                </div>
-                <p class="timeline-role">Chief Technology Officer (CTO)</p>
-                <ul>
-                    <li>Directing technical strategy and architecture for healthcare apps (<span class="highlight">Implant Identifier</span>, <span class="highlight">iTemplating</span>, <span class="highlight">SurgiVision</span>) serving <span class="highlight">50,000+</span> medical professionals.</li>
-                    <li>Overseeing cloud infrastructure migration & scaling (Supabase, PostgreSQL, GCP) with rigorous HIPAA-compliant data security.</li>
-                    <li>Managing cross-functional workflows bridging AI model deployment, Flutter mobile apps, and Node.js/Express backend services.</li>
-                    <li>Collaborating with manufacturers and device representatives to establish B2B business models.</li>
-                </ul>
-            </div>
-
-            <!-- Implant Identifier -->
-            <div class="timeline-item">
-                <div class="timeline-header">
-                    <h3>Implant Identifier</h3>
-                    <span class="date">2024 – Present</span>
-                </div>
-                <p class="timeline-role">AI Lead</p>
-                <ul>
-                    <li>Scaled an AI-powered orthopedic implant identification platform from MVP to a <span class="highlight">leading global medical tool</span>, acquiring ~5,000 active users (10% base growth) in the first month.</li>
-                    <li>Architected and trained Computer Vision models (PyTorch, TensorFlow) for real-time detection & classification of <span class="highlight">1,000+ implant types</span> from X-ray images.</li>
-                    <li>Built comprehensive MLOps pipelines for continuous data integration, ensuring dataset integrity and consistently improving model accuracy.</li>
-                </ul>
-            </div>
-
-            <!-- Selextract -->
-            <div class="timeline-item">
-                <div class="timeline-header">
-                    <h3>Selextract</h3>
-                    <span class="date">2024 – Present</span>
-                </div>
-                <p class="timeline-role">Founder & Lead Developer</p>
-                <ul>
-                    <li>Developing a SaaS platform for advanced data extraction using AI agents to reverse-engineer web into deterministic recipes.</li>
-                </ul>
-            </div>
-
-            <!-- FHD Media -->
-            <div class="timeline-item">
-                <div class="timeline-header">
-                    <h3>FHD Media <span style="font-weight:400; font-size:0.82rem; color: var(--muted);">(@YouTube FERA-ANIMATIONS)</span></h3>
-                    <span class="date">2021 – 2024</span>
-                </div>
-                <p class="timeline-role">Data Scientist</p>
-                <ul>
-                    <li>Engineered large-scale scraping pipelines across YouTube, X, and Instagram, processing <span class="highlight">millions of posts</span> for trend analysis.</li>
-                    <li>Applied generative ML models (Markov Chains), word clouds, and NLP techniques to autonomously generate targeted content ideas from real-time audience data.</li>
-                    <li>Propelled the channel to consistently rank in the <span class="highlight">Top 10 trending</span> in the animation category on release days.</li>
-                </ul>
-            </div>
-
-            <!-- Flipppler -->
-            <div class="timeline-item">
-                <div class="timeline-header">
-                    <h3>Flipppler GmbH <span style="font-weight:400; font-size:0.82rem; color: var(--muted);">München, Germany</span></h3>
-                    <span class="date">2019 – 2021</span>
-                </div>
-                <p class="timeline-role">Cognitive Developer</p>
-                <ul>
-                    <li>Developed automated scrapers and trained RNNs to extract structured product data, processing up to <span class="highlight">10,000 catalog pages (~50K products)</span>.</li>
-                    <li>Implemented the Hungarian algorithm for visual price-product matching, mimicking human cognitive association and drastically improving accuracy.</li>
-                </ul>
-            </div>
-
-            <!-- UpWork -->
-            <div class="timeline-item">
-                <div class="timeline-header">
-                    <h3>UpWork Freelance</h3>
-                    <span class="date">2018 – Present</span>
-                </div>
-                <p class="timeline-role">AI Developer (Top 3% Talent)</p>
-                <ul>
-                    <li>Consistently ranked in the <span class="highlight">top 3%</span> of global talent, delivering custom AI, ML, and Cloud solutions with exceptional client satisfaction.</li>
-                    <li>Designed and deployed secure PERN stack admin panels with Role-Based Access Control (RBAC) for user, content, and system management.</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Projects -->
-        <h2 class="section-title"><span class="dot"></span> Selected Projects & Achievements</h2>
-
-        <div class="project-card">
-            <h3><span class="project-badge">🏆 Finalist</span> 2022 Teknofest — Combat UAV</h3>
-            <p>Engineered autonomous weapons & flight control systems. Trained a custom <span class="highlight">YOLO model</span> for target detection, integrated KCF algorithm for high-speed tracking with async YOLO reorientation. Authored the autonomous dogfight algorithm and battlefield server API protocol.</p>
-        </div>
-
-        <div class="project-card">
-            <h3>Stellair.io — Fashion Pattern Recognition</h3>
-            <p>Deployed a custom <span class="highlight">RetinaNet</span> model on Google ML Engine, trained to identify and match <span class="highlight">30 fashion patterns</span> and <span class="highlight">12 colors</span> based on designer guidelines for personalized clothing fit recommendations.</p>
-        </div>
-
-        <div class="project-card">
-            <h3>Dynamic ASL & Talos App</h3>
-            <p>Developed real-time ASL recognition using <span class="highlight">Inception v3</span>. Built Talos, a multi-language camera-based translation app supporting <span class="highlight">26 languages</span> and recognizing <span class="highlight">2,500+ objects</span>.</p>
-        </div>
-    </main>
-</div>
+        </main>
+    </div>
 
 </body>
+
 </html>
